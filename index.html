@@ -1,0 +1,120 @@
+<!DOCTYPE hmtl>
+<html lang="pt-br">
+    <head>
+        <title>Exemplo de um site one page parallax</title>
+        <meta http-equiv="Content-Type" content="text/html"; charset="utf-8">
+        <meta name="viewport" content="width=device-width", initial-scale="1.0">
+        <style>
+            *{
+                margin: 0 auto;
+                padding: 0 auto;
+            }  
+
+            .parallax {
+                background-image: url("img.jpg");
+                height: 100vh;
+                width: 100%;
+                background-attachment: fixed;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                position: relative;
+                z-index: 4;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .texto { 
+                width: 100%;
+                font-size: 2em;
+                text-align: center;
+                background-color: #E8E8E8;
+                height: 100vh;
+                z-index: 6;
+                position: relative;
+                box-shadow: 0 .1em .5em #E8E8E8;
+                display: flex;
+                align-items: center;
+            }
+
+            .textoimg {
+                width: calc(60% - .7em);
+                text-align: center;
+                background-color: #111;
+                color: #fff;
+                padding: .7em;
+                font-size: 2em;
+                letter-spacing: .3em;
+                opacity: .9;
+                position: fixed;
+                z-index: 5;
+            }
+
+            .titulo {
+                font-size: 2em;
+                width: 100%;
+                padding: 20px 0px 20px 0px;
+                text-align: center;
+                background-color: rgb(2, 2, 71);
+                color: white;
+                height: 10vh;
+                position: relative;
+                top: 0;
+                z-index: 7;
+            }
+
+            footer {
+                height: 15vh;
+            }
+
+            .textorodape {
+                font-size: 2em;
+                padding-top: 1em;
+                padding-bottom: 1em;
+                text-align: center;
+                background-color: #363636;
+                letter-spacing: .3em;
+                color: white;
+                text-shadow: 0 0 0.1em #DCDCDC;
+                position: fixed;
+                bottom: 0;
+                z-index: 3; 
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <section class="titulo">
+                <h1>Exemplo de um site one page parallax</h1>
+            </section>
+            <section class="parallax">
+                <p class="textoimg">Parallax</p>
+            </section>
+        </header>
+        <main>
+            <article class="texto">
+                <p>O rodapé vai aparecer por trás do conteúdo.</p>
+            </article>
+        </main>
+        <footer>
+            <div class="textorodape">RODAPÉ</div>
+        </footer>
+        <script>
+          //Fixa menu superior ao rolar a página para baixo  
+          function titullax() {
+           alturaDoTitulo = window.scrollY
+           console.log(alturaDoTitulo)
+              if (alturaDoTitulo >= 200) {
+                 document.querySelector('.titulo').style.position = 'fixed'
+              }else {
+                  document.querySelector('.titulo').style.position = 'relative'
+              }
+            }
+            window.addEventListener('scroll', titullax)
+        </script>
+    </body>
+</html>
+
+
